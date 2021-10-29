@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastodon on blog</title>
+    <link href="./default.style.css" rel="stylesheet">
+    <link href="./iframe.base.css" rel="stylesheet">
+    <style>
+        #my-mastodon-widget {
+            height: 100px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="my-mastodon-widget"></div>
+    <script src="./mastodon-on-blog.js"></script>
+    <script>
+        MastodonOnBlog({
+            instance: 'o3o.ca',
+            userId: 541,
+            loadingText: '加载中(´·ω·｀)',
+            loadFailText: '加载失败(╯°Д°）╯︵ /(.□ . \\)',
+            token: '',
+            rootDOM: 'my-mastodon-widget',
+            emojiDataPath: './test/emoji.json',
+            testStatusesData: './test/statuses.json'
+        })
+    </script>
+</body>
+</html>
