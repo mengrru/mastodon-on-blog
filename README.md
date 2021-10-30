@@ -14,7 +14,7 @@ Save and refresh the page, then you can see the widget looks like this:
 
 ![mastodon](https://user-images.githubusercontent.com/80361883/139525296-b21924cb-84b3-40ac-9cef-1f8743a43b56.png)
 
-\*if you don't want to clone this repo and use iframe, go [# Not use iframe](#not-use-iframe).
+\*if you don't want to clone this repo and use iframe, go to [# Not using iframe](#not-using-iframe).
 
 ## Configuration
 
@@ -32,20 +32,20 @@ MastodonOnBlog({
 })
 ```
 
-Change `instance` to the domain name of your Mastodon instance, change `userId` to your [number id](#get-your-number-id), and last remove `staticEmojiDataPath` and `staticStatusesDataPath`. Save and refresh your page, and you can see your toot show in the widget.
+Change `instance` to the domain name of your Mastodon instance, change `userId` to your [number id](#get-your-number-id), and at last remove `staticEmojiDataPath` and `staticStatusesDataPath`. Save and refresh your page, and you can see your toot was shown in the widget.
 
 ## API
 
-| Field | Description | Required | Default |
-| --- | --- | --- | --- |
-| instance | the domain name of your Mastodon instance | yes | \- |
-| userId | your number id | yes | \- |
-| tag | only show the toot with this tag | no | \- |
-| rootDOM | the root DOM of widget rendering | no | 'my-mastodon-widget' |
-| loadingText | the shown text when loading | no | '加载中...' |
-| loadFailText | the shown text when loading failed | no | '加载失败' |
-| staticEmojiDataPath | the path of static emoji data. you can copy a static one from `<instance domain>/api/v1/custom_emojis` and use it to speed up the loading of widget | no | \- |
-| staticStatusesDataPath | the path of static statuses data. you can use it when you build widget themes | no | \- |
+| Field | Description | Required | Default | Type |
+| --- | --- | --- | --- | --- |
+| instance | the domain name of your Mastodon instance | yes | \- | String |
+| userId | your number id | yes | \- | Number |
+| tag | only show the toot with this tag | no | \- | String |
+| rootDOM | the root DOM of widget rendering | no | 'my-mastodon-widget' | String |
+| loadingText | the shown text when loading | no | '加载中...' | String |
+| loadFailText | the shown text when loading failed | no | '加载失败' | String |
+| staticEmojiDataPath | the path of static emoji data. you can copy a static one from `<instance domain>/api/v1/custom_emojis` and use it to speed up the loading of widget | no | \- | String |
+| staticStatusesDataPath | the path of static statuses data. you can use it when you build widget themes | no | \- | String |
 
 ## Build your own themes
 
@@ -85,7 +85,7 @@ https://mengru.space/mastodon-on-blog/themes/livly-2/style.css
 
 Open your Mastodon timeline in browser, and click your avatar, then look at address bar you can find the url is `<instance domain>/web/accounts/<number>`, the `<number>` is your number id.
 
-### Not use iframe
+### Not using iframe
 
 If you don't want to use iframe, you can import `default.style.css` and `mastodon-on-blog.js` to your page:
 
@@ -94,7 +94,7 @@ If you don't want to use iframe, you can import `default.style.css` and `mastodo
 <script src="https://mengru.space/mastodon-on-blog/mastodon-on-blog.js"></script>
 ```
 
-then insert the HTML code to where you want the widget is rendered:
+then insert this HTML code to where you want the widget is rendered:
 
 ```
 <div id="my-mastodon-widget"></div>
