@@ -32,7 +32,7 @@ MastodonOnBlog({
 })
 ```
 
-Change `instance` to the domain name of your Mastodon instance, change `userId` to your [number id](#get-your-number-id), change `token` to your [access token](#set-your-access-token), and last remove `emojiDataPath` and `testStatusesData`. Save and refresh your page, and you can see your toot show in the widget.
+Change `instance` to the domain name of your Mastodon instance, change `userId` to your [number id](#get-your-number-id), change `token` to your [access token](#set-your-access-token), and last remove `staticEmojiDataPath` and `staticStatusesDataPath`. Save and refresh your page, and you can see your toot show in the widget.
 
 ## API
 
