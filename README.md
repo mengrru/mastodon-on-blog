@@ -26,14 +26,13 @@ MastodonOnBlog({
     userId: 541,
     loadingText: '加载中(´·ω·｀)',
     loadFailText: '加载失败(╯°Д°）╯︵ /(.□ . \\)',
-    token: '',
     rootDOM: 'my-mastodon-widget',
     staticEmojiDataPath: './test/emoji.json',
     staticStatusesDataPath: './test/statuses.json'
 })
 ```
 
-Change `instance` to the domain name of your Mastodon instance, change `userId` to your [number id](#get-your-number-id), change `token` to your [access token](#set-your-access-token), and last remove `staticEmojiDataPath` and `staticStatusesDataPath`. Save and refresh your page, and you can see your toot show in the widget.
+Change `instance` to the domain name of your Mastodon instance, change `userId` to your [number id](#get-your-number-id), and last remove `staticEmojiDataPath` and `staticStatusesDataPath`. Save and refresh your page, and you can see your toot show in the widget.
 
 ## API
 
@@ -41,7 +40,6 @@ Change `instance` to the domain name of your Mastodon instance, change `userId` 
 | --- | --- | --- | --- |
 | instance | the domain name of your Mastodon instance | yes | \- |
 | userId | your number id | yes | \- |
-| token | your access token | yes | \- |
 | tag | only show the toot with this tag | no | \- |
 | rootDOM | the root DOM of widget rendering | no | 'my-mastodon-widget' |
 | loadingText | the shown text when loading | no | '加载中...' |
@@ -87,10 +85,6 @@ https://mengru.space/mastodon-on-blog/themes/livly-2/style.css
 
 Open your Mastodon timeline in browser, and click your avatar, then look at address bar you can find the url is `<instance domain>/web/accounts/<number>`, the `<number>` is your number id.
 
-### Set your access token
-
-Enter `<instance domain>/settings/applications/new`, fill an application name (whatever you like), **only check `read:statuses` and uncheck all others options**, then click submit button. Open the application page you just created, you can find the access token (你的访问令牌 in Chinese).
-
 ### Not use iframe
 
 If you don't want to use iframe, you can import `default.style.css` and `mastodon-on-blog.js` to your page:
@@ -112,7 +106,6 @@ at last insert the config code at the bottom of your page:
 MastodonOnBlog({
     instance: '',
     userId: 1,
-    token: '',
     ...
 })
 ```

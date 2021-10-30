@@ -93,9 +93,6 @@
         if (!config.userId) {
             throw new Error('required a user id.')
         }
-        if (!config.token) {
-            console.warn('required a token, or use the widget in local only.')
-        }
         config.loadingText = config.loadingText || '加载中...'
         config.loadFailText = config.loadFailText || '加载失败'
         config.rootDOM = config.rootDOM || 'my-mastodon-widget'

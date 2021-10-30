@@ -22,14 +22,13 @@ MastodonOnBlog({
     userId: 541,
     loadingText: '加载中(´·ω·｀)',
     loadFailText: '加载失败(╯°Д°）╯︵ /(.□ . \\)',
-    token: '',
     rootDOM: 'my-mastodon-widget',
     emojiDataPath: './test/emoji.json',
     testStatusesData: './test/statuses.json'
 })
 ```
 
-将 `instance` 改为你所在的长毛象实例，将 `userId` 改为你的数字 id，在 `token` 处填写你的[访问令牌](#设置访问令牌)，最后删除 `emojiDataPath` 和 `testStatusesData` 字段。保存后刷新页面，不出意外就能看到你的长毛象嘟文显示在插件中了。
+将 `instance` 改为你所在的长毛象实例，将 `userId` 改为你的数字 id，最后删除 `emojiDataPath` 和 `testStatusesData` 字段。保存后刷新页面，不出意外就能看到你的长毛象嘟文显示在插件中了。
 
 ## 字段说明
 
