@@ -15,7 +15,7 @@ Save and refresh the page, then you can see the widget looks like this:
 ![mastodon](https://user-images.githubusercontent.com/80361883/139525296-b21924cb-84b3-40ac-9cef-1f8743a43b56.png)
 
 
-## Confiuration
+## Configuration
 
 Open `mastodon-on-blog/index.html` and focus on:
 
