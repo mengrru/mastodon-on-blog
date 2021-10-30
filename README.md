@@ -12,6 +12,9 @@ Clone this repo to your blog dir, and insert the code to your page:
 
 Save and refresh the page, then you can see the widget looks like this:
 
+![mastodon](https://user-images.githubusercontent.com/80361883/139525296-b21924cb-84b3-40ac-9cef-1f8743a43b56.png)
+
+
 ## Confiuration
 
 Open `mastodon-on-blog/index.html` and focus on:
@@ -29,7 +32,7 @@ MastodonOnBlog({
 })
 ```
 
-Change `instance` to the domain name of your Mastodon instance, change `userId` to your [number id](#Get your number id), change `token` to your [access token](#Set your access token), and last remove `emojiDataPath` and `testStatusesData`. Save and refresh your page, and you can see your toot show in the widget.
+Change `instance` to the domain name of your Mastodon instance, change `userId` to your [number id](#get-your-number-id), change `token` to your [access token](#set-your-access-token), and last remove `emojiDataPath` and `testStatusesData`. Save and refresh your page, and you can see your toot show in the widget.
 
 ## API
 
@@ -49,9 +52,13 @@ Change `instance` to the domain name of your Mastodon instance, change `userId` 
 
 Modify the file `default.style.css` to build your own styles, or create a new css file and link it in the `index.html`.
 
+If you need an independent iframe to test your work, you can use `test/index.html`.
+
 ## Existing themes
 
 **default**
+
+![mastodon](https://user-images.githubusercontent.com/80361883/139525296-b21924cb-84b3-40ac-9cef-1f8743a43b56.png)
 
 ## FAQ
 
