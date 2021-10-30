@@ -14,6 +14,7 @@ Save and refresh the page, then you can see the widget looks like this:
 
 ![mastodon](https://user-images.githubusercontent.com/80361883/139525296-b21924cb-84b3-40ac-9cef-1f8743a43b56.png)
 
+\*if you don't want to use iframe, go [# Not use iframe](#not-use-iframe).
 
 ## Configuration
 
@@ -54,7 +55,7 @@ Modify the file `default.style.css` to build your own styles, or create a new cs
 
 If you need an independent iframe to test your work, you can use `test/index.html`.
 
-## Existing themes
+## Available themes
 
 **default**
 
@@ -80,7 +81,14 @@ Enter `<instance domain>/settings/applications/new`, fill an application name (w
 
 ### Not use iframe
 
-If you don't want to use iframe, you can import `default.style.css` and `mastodon-on-blog.js` to your page, then insert the init code at the bottom of your page:
+If you don't want to use iframe, you can import `default.style.css` and `mastodon-on-blog.js` to your page:
+
+```
+<link href="https://raw.githubusercontent.com/mengrru/mastodon-on-blog/main/default.style.css" rel="stylesheet">
+<script src="https://raw.githubusercontent.com/mengrru/mastodon-on-blog/main/mastodon-on-blog.js"></script>
+```
+
+then insert the init code at the bottom of your page:
 
 ```
 MastodonOnBlog({
