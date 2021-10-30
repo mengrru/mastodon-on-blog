@@ -14,7 +14,7 @@ Save and refresh the page, then you can see the widget looks like this:
 
 ![mastodon](https://user-images.githubusercontent.com/80361883/139525296-b21924cb-84b3-40ac-9cef-1f8743a43b56.png)
 
-\*if you don't want to use iframe, go [# Not use iframe](#not-use-iframe).
+\*if you don't want to clone this repo and use iframe, go [# Not use iframe](#not-use-iframe).
 
 ## Configuration
 
@@ -61,13 +61,25 @@ If you need an independent iframe to test your work, you can use `test/index.htm
 
 ![mastodon](https://user-images.githubusercontent.com/80361883/139525296-b21924cb-84b3-40ac-9cef-1f8743a43b56.png)
 
+```
+https://raw.githubusercontent.com/mengrru/mastodon-on-blog/main/default.style.css
+```
+
 **livly-1**
 
 ![livly1preview](https://user-images.githubusercontent.com/80361883/139531628-de785ad9-6a42-441a-b93a-e88c9c5af229.PNG)
 
+```
+https://raw.githubusercontent.com/mengrru/mastodon-on-blog/main/themes/livly-1/style.css
+```
+
 **livly-2**
 
 ![livly2preview](https://user-images.githubusercontent.com/80361883/139531636-c0077c91-3c17-47be-8141-7c35e5851335.PNG)
+
+```
+https://raw.githubusercontent.com/mengrru/mastodon-on-blog/main/themes/livly-2/style.css
+```
 
 ## FAQ
 
@@ -88,7 +100,13 @@ If you don't want to use iframe, you can import `default.style.css` and `mastodo
 <script src="https://raw.githubusercontent.com/mengrru/mastodon-on-blog/main/mastodon-on-blog.js"></script>
 ```
 
-then insert the init code at the bottom of your page:
+then insert the HTML code to where you want the widget is rendered:
+
+```
+<div id="my-mastodon-widget"></div>
+```
+
+at last insert the config code at the bottom of your page:
 
 ```
 MastodonOnBlog({
