@@ -1,20 +1,20 @@
 # mastodon-on-blog
 
-把你的长毛象消息放在你的博客上！
+Put a Mastodon widget on your website or blog.
 
-## 快速开始
+## Quick start
 
-将本项目克隆到你的博客目录中，在需要加入该插件的地方插入代码：
+Clone this repo to your blog dir, and insert the code to your page:
 
 ```
 <iframe src="<root_path>/mastodon-on-blog/index.html" height=100 width=200></iframe>
 ```
 
-保存后刷新页面，就能看到插件显示了。
+Save and refresh the page, then you can see the widget looks like this:
 
-## 配置
+## Confiuration
 
-打开 `mastodon-on-blog/index.html`，看到：
+Open `mastodon-on-blog/index.html` and focus on:
 
 ```
 MastodonOnBlog({
@@ -24,17 +24,54 @@ MastodonOnBlog({
     loadFailText: '加载失败(╯°Д°）╯︵ /(.□ . \\)',
     token: '',
     rootDOM: 'my-mastodon-widget',
-    emojiDataPath: './test/emoji.json',
-    testStatusesData: './test/statuses.json'
+    staticEmojiDataPath: './test/emoji.json',
+    staticStatusesDataPath: './test/statuses.json'
 })
 ```
 
-将 `instance` 改为你所在的长毛象实例，将 `userId` 改为你的数字 id，在 `token` 处填写你的[访问令牌](#设置访问令牌)，最后删除 `emojiDataPath` 和 `testStatusesData` 字段。保存后刷新页面，不出意外就能看到你的长毛象嘟文显示在插件中了。
+Change `instance` to the domain name of your Mastodon instance, change `userId` to your [number id](#Get your number id), change `token` to your [access token](#Set your access token), and last remove `emojiDataPath` and `testStatusesData`. Save and refresh your page, and you can see your toot show in the widget.
 
-## 字段说明
+## API
 
-## 设置访问令牌
+| Field | Description | Required | Default |
+| --- | --- | --- | --- |
+| instance | the domain name of your Mastodon instance | yes | \- |
+| userId | your number id | yes | \- |
+| token | your access token | yes | \- |
+| tag | only show the toot with this tag | no | \- |
+| rootDOM | the root DOM of widget rendering | no | 'my-mastodon-widget' |
+| loadingText | the shown text when loading | no | '加载中...' |
+| loadFailText | the shown text when loading failed | no | '加载失败' |
+| staticEmojiDataPath | the path of static emoji data. you can copy a static one from `<instance domain>/api/v1/custom_emojis` and use it to speed up the loading of widget | no | \- |
+| staticStatusesDataPath | the path of static statuses data. you can use it when you build widget themes | no | \- |
 
-## 主题开发
+## Build your own themes
 
-## 不使用 iframe 插入
+Modify the file `default.style.css` to build your own styles, or create a new css file and link it in the `index.html`.
+
+## Existing themes
+
+**default**
+
+## FAQ
+
+### Get your number id
+
+Open your Mastodon timeline in browser, and click your avatar, then look at address bar you can find the url is `<instance domain>/web/accounts/<number>`, the `<number>` is your number id.
+
+### Set your access token
+
+Enter `<instance domain>/settings/applications/new`, fill an application name (whatever you like), **only check `read:statuses` and uncheck all others options**, then click submit button. Open the application page you just created, you can find the access token (你的访问令牌 in Chinese).
+
+### Not use iframe
+
+If you don't want to use iframe, you can import `default.style.css` and `mastodon-on-blog.js` to your page, then insert the init code at the bottom of your page:
+
+```
+MastodonOnBlog({
+    instance: '',
+    userId: 1,
+    token: '',
+    ...
+})
+```

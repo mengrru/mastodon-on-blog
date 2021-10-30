@@ -64,16 +64,16 @@
         ${date.getFullYear()}-${formatNumber(date.getMonth() + 1)}-${formatNumber(date.getDate())} ${formatNumber(date.getHours())}:${formatNumber(date.getMinutes())}:${formatNumber(date.getSeconds())}`
     }
     function formatNumber (num) {
-        return num < 10 ? '0' + num : num
+        return num.toString().padStart(2, '0')
     }
     function launch (config) {
         const rootDOM = document.getElementById(config.rootDOM)
         rootDOM.innerHTML = config.loadingText
-        loadFile(config.testStatusesData ||
+        loadFile(config.staticStatusesDataPath ||
             `https://${config.instance}/api/v1/accounts/${config.userId}/statuses?tagged=${config.tag || ''}`, config.token,
             (str) => {
                 const statusesData = JSON.parse(str)
-                loadFile(config.emojiDataPath || `https://${config.instance}/api/v1/custom_emojis`, config.token, (str) => {
+                loadFile(config.staticEmojiDataPath || `https://${config.instance}/api/v1/custom_emojis`, config.token, (str) => {
                     const emojisData = JSON.parse(str)
                     render(statusesData, emojisData, config)
                 }, () => {

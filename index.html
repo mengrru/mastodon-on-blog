@@ -8,10 +8,12 @@
     <link href="./default.style.css" rel="stylesheet">
     <link href="./iframe.base.css" rel="stylesheet">
     <style>
+        /*
         #my-mastodon-widget {
             height: 100px;
             width: 300px;
         }
+        */
     </style>
 </head>
 <body>
@@ -25,8 +27,8 @@
             loadFailText: '加载失败(╯°Д°）╯︵ /(.□ . \\)',
             token: '',
             rootDOM: 'my-mastodon-widget',
-            emojiDataPath: './test/emoji.json',
-            testStatusesData: './test/statuses.json'
+            staticEmojiDataPath: './test/emoji.json',
+            staticStatusesDataPath: './test/statuses.json'
         })
     </script>
 </body>
