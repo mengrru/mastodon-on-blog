@@ -18,7 +18,7 @@
     function showImage (e, imageData) {
         e.path[1].innerHTML = imageData.reduce((a, b) => {
             if (b.type === 'image') {
-                return a + `<img src="${b.preview_url}" />`
+                return a + `<div class="image-wrapper"><img src="${b.preview_url}" /></div>`
             }
             return a
         }, '')
@@ -30,6 +30,7 @@
             let content = d.content
             content = content.replace(/:(\w+):/g, getEmoji)
             html += `
+            <div class="item">
                 <div class="content">${content}</div>
             `
             if (d.media_attachments.some(e => e.type === 'image')) {
@@ -39,6 +40,7 @@
             }
             html += `
                 <div class="time">${formatTime(d.created_at)}</div>
+            </div>
             `
         }
         const rootDOM = document.getElementById(config.rootDOM)
