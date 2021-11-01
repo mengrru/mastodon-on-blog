@@ -2,7 +2,7 @@
     function loadFile (path, token, fn, errfn) {
         const request = new XMLHttpRequest()
         request.open('get', path)
-        request.setRequestHeader('Authorization', token)
+        request.setRequestHeader('Authorization', 'Bearer ' + token)
         request.send(null)
         request.onload = function () {
             if (request.readyState === 4) {
@@ -10,7 +10,7 @@
                     fn(request.responseText)
                 } else {
                     console.warn('Load file ' + path + ' failed.')
-                    typeof errfn === 'function' ? errfn() : ''
+                    typeof errfn === 'function' ? errfn(request.status) : ''
                 }
             }
         }
@@ -44,11 +44,8 @@
             `
         }
         const rootDOM = document.getElementById(config.rootDOM)
-        const mainDOM = document.createElement('div')
-        mainDOM.id = 'main'
+        const mainDOM = rootDOM.querySelector('.main')
         mainDOM.innerHTML = html
-        rootDOM.innerHTML = ''
-        rootDOM.appendChild(mainDOM)
         Array.prototype.slice.call(document.querySelectorAll('.hashtag')).forEach(e => {
             e.remove()
         })
@@ -70,7 +67,11 @@
     }
     function launch (config) {
         const rootDOM = document.getElementById(config.rootDOM)
-        rootDOM.innerHTML = config.loadingText
+        const mainDOM = document.createElement('div')
+        mainDOM.className = 'main'
+        mainDOM.innerHTML = config.loadingText
+        rootDOM.appendChild(mainDOM)
+
         loadFile(config.staticStatusesDataPath ||
             `https://${config.instance}/api/v1/accounts/${config.userId}/statuses?tagged=${config.tag || ''}`, config.token,
             (str) => {
@@ -81,8 +82,8 @@
                 }, () => {
                     render(statusesData, null, config)
                 })
-            }, () => {
-                rootDOM.innerHTML = config.loadFailText
+            }, (statusCode) => {
+                mainDOM.innerHTML = config.loadFailText + '<br>status code: ' + statusCode
             })
     }
 

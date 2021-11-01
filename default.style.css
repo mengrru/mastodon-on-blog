@@ -11,7 +11,7 @@
     margin: 0;
     background: #fcfcfc;
 }
-#my-mastodon-widget #main {
+#my-mastodon-widget .main {
     box-sizing: border-box;
     padding: 3px 8px;
     overflow-y: scroll;
