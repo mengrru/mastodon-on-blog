@@ -1,6 +1,8 @@
 #my-mastodon-widget {
+    /*
     background-image: url(./bg-flip.png);
     background-repeat: no-repeat;
+    */
     width: 180px;
     height: 360px;
     border: #eee 1px solid;
@@ -11,16 +13,69 @@
     box-sizing: border-box;
     padding: 3px 0;
     margin: 0;
+    background: 
+        linear-gradient(to right top,
+          #b8d4d8 25%,
+          rgba(255,255,255,0) 25%
+          ) 0 0,
+        linear-gradient(to left top,
+          #b8d4d8 25%,
+          rgba(255,255,255,0) 25%
+          ) 0 0,
+        linear-gradient(to right bottom,
+          #b8d4d8 25%,
+          rgba(255,255,255,0) 25%
+          ) 0 0,
+        linear-gradient(to left bottom,
+          #b8d4d8 25%,
+          rgba(255,255,255,0) 25%
+          ) 0 0; 
+  background-size:  20px 40px;
+  background-color: #d9e4e8;
+  background-position: -10px 20px;
+  position: relative;
+}
+
+#my-mastodon-widget::before {
+    z-index: 2;
+    content: "";
+    width: 100px;
+    height: 120px;
+    position: absolute;
+    background: url('./head-s.png');
+    background-repeat: no-repeat;
+    background-size: auto 120px;
+    top: 0;
+    right: 0;
+}
+#my-mastodon-widget::after {
+    content: "Powered By Mastodon";
+    font-size: 12px;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #7cadb4;
+    width: 100%;
+    display: block;
+    margin-top: -7px;
+    z-index: 2;
+    position: relative;
 }
 #my-mastodon-widget .main {
-    padding: 0 3px;
-    box-sizing: border-box;
-    margin-left: 14px;
-    margin-right: 14px;
-    margin-top: 118px;
-    padding-bottom: 20px;
+    z-index: 1;
+    position: relative;
+    box-sizing: content-box;
     overflow-y: scroll;
-    height: 210px;
+    background-color: rgba(238,244,246, .62);
+    border-radius: 30px;
+    border: 12px solid transparent;
+    border-top-width: 21px;
+    border-bottom-width: 14px;
+    margin-top: 102px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0 3px;
+    padding-bottom: 15px;
+    height: 186px;
 }
 
 #my-mastodon-widget p {
