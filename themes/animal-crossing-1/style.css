@@ -1,0 +1,138 @@
+#my-mastodon-widget {
+    color: #666;
+    background: 
+        linear-gradient(to right top,
+          #aaca81 25%,
+          rgba(255,255,255,0) 25%) 0 0,
+        linear-gradient(to left top,
+          #aaca81 25%,
+          rgba(255,255,255,0) 25%) 0 0,
+        linear-gradient(to right bottom,
+          #aaca81 25%,
+          rgba(255,255,255,0) 25%) 0 0,
+        linear-gradient(to left bottom,
+          #aaca81 25%,
+          rgba(255,255,255,0) 25%) 0 0; 
+    background-color: #feefb4;
+    background-size:  20px 40px;
+}
+
+#my-mastodon-widget::before {
+    width: 170px;
+    height: 120px;
+    background-image: url('./head.png');
+    background-size: 170px auto;
+    right: 5px;
+}
+#my-mastodon-widget::after {
+    content: "Powered By Mastodon";
+    color: #fff;
+    text-shadow: 1px 1px 0px #72a237;
+}
+#my-mastodon-widget .main {
+    background-color: rgba(255,245,240, .62);
+}
+#my-mastodon-widget a {
+    color: #fb8964;
+}
+#my-mastodon-widget ::-webkit-scrollbar-thumb {
+  background: #afce88;
+}
+#my-mastodon-widget .item::before {
+    background-image: none;
+    background-color: #fb8964;
+    width: 7px;
+    height: 7px;
+    padding: 0;
+    margin-top: 4px;
+}
+#my-mastodon-widget .images .image-wrapper {
+    border: 1px solid #fb8964;
+}
+#my-mastodon-widget .time {
+    color: #666;
+    border-bottom: 2px dotted #fff;
+}
+
+/****************/
+
+#my-mastodon-widget {
+    width: 180px;
+    height: 360px;
+    font-family: 'Latin Modern Roman', 'Times New Roman', serif, '宋体';
+    font-size: 13px;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 3px 0;
+    margin: 0;
+    position: relative;
+}
+
+#my-mastodon-widget::before {
+    z-index: 2;
+    content: "";
+    position: absolute;
+    background-repeat: no-repeat;
+}
+#my-mastodon-widget::after {
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+    display: block;
+    margin-top: -7px;
+    z-index: 2;
+    position: relative;
+}
+#my-mastodon-widget .main {
+    z-index: 1;
+    position: relative;
+    box-sizing: content-box;
+    overflow-y: scroll;
+    border-radius: 30px;
+    border: 12px solid transparent;
+    border-top-width: 21px;
+    border-bottom-width: 14px;
+    margin-top: 102px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0 3px;
+    padding-bottom: 15px;
+    height: 186px;
+}
+
+#my-mastodon-widget p {
+    margin: 0;
+}
+#my-mastodon-widget ::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+#my-mastodon-widget .item::before {
+    content: "";
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-right: 3px;
+    float: left;
+}
+#my-mastodon-widget .time {
+    padding-bottom: 2px;
+    margin-bottom: 7px;
+}
+#my-mastodon-widget .images .image-wrapper {
+    margin-left: 3px;
+    margin-top: 2px;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+}
+#my-mastodon-widget .images img {
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 60px;
+    opacity: .8;
+}
+#my-mastodon-widget .emoji {
+    width: 17px;
+}
+

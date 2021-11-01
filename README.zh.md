@@ -56,6 +56,8 @@ MastodonOnBlog({
 
 如果你需要一个独立的 iframe 来测试你的皮肤效果，可以使用 `test/index.html`。
 
+特别地，阅读 [Quick build your own themes](https://github.com/mengrru/mastodon-on-blog/blob/main/themes/livly-1/README.md) 来快速制作自己的皮肤。
+
 ## 可用的皮肤
 
 **default**
@@ -80,6 +82,14 @@ https://mengru.space/mastodon-on-blog/themes/livly-1/style.css
 
 ```
 https://mengru.space/mastodon-on-blog/themes/livly-2/style.css
+```
+
+**animal-crossing-1**
+
+![like](https://user-images.githubusercontent.com/80361883/139692121-30bcc691-fa21-48c3-a6bf-418130a49bca.PNG)
+
+```
+https://mengru.space/mastodon-on-blog/themes/animal-crossing-1/style.css
 ```
 
 ## 常见问题
