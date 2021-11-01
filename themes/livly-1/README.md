@@ -113,5 +113,6 @@ Your can modify the colors and header image or others details as you like, for e
 
 then I get a Tom Nook theme:
 
+![like](https://user-images.githubusercontent.com/80361883/139692121-30bcc691-fa21-48c3-a6bf-418130a49bca.PNG)
 
 Enjoy!
