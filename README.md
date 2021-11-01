@@ -1,6 +1,6 @@
 # mastodon-on-blog
 
-\([中文文档](https://github.com/mengrru/mastodon-on-blog/blob/main/README.zh.md)\)
+English Docs | [中文文档](https://github.com/mengrru/mastodon-on-blog/blob/main/README.zh.md)
 
 Put a Mastodon widget on your website or blog.
 
@@ -57,6 +57,8 @@ Change the value of `instance` to the domain name of your Mastodon instance, cha
 Modify the file `default.style.css` to build your own styles, or create a new css file and link it in the `index.html`.
 
 If you need an independent iframe to test your work, you can use `test/index.html`.
+
+For quick modify, read [Quick build your own themes](https://github.com/mengrru/mastodon-on-blog/blob/main/themes/livly-1/README.md).
 
 ## Available themes
 

@@ -1,0 +1,48 @@
+#my-mastodon-widget {
+    background: 
+        linear-gradient(to right top,
+          #aaca81 25%,
+          rgba(255,255,255,0) 25%) 0 0,
+        linear-gradient(to left top,
+          #aaca81 25%,
+          rgba(255,255,255,0) 25%) 0 0,
+        linear-gradient(to right bottom,
+          #aaca81 25%,
+          rgba(255,255,255,0) 25%) 0 0,
+        linear-gradient(to left bottom,
+          #aaca81 25%,
+          rgba(255,255,255,0) 25%) 0 0; 
+    background-color: #feefb4;
+    background-size:  20px 40px;
+}
+
+#my-mastodon-widget::before {
+    width: 170px;
+    height: 120px;
+    background-image: url('./like.png');
+    background-size: 170px auto;
+    right: 5px;
+}
+#my-mastodon-widget::after {
+    text-shadow: 1px 1px 0px #72a237;
+}
+#my-mastodon-widget .main {
+    background-color: rgba(255,245,240, .62);
+}
+#my-mastodon-widget a {
+    color: #fb8964;
+}
+#my-mastodon-widget ::-webkit-scrollbar-thumb {
+  background: #afce88;
+}
+#my-mastodon-widget .item::before {
+    background-image: none;
+    background-color: #fb8964;
+    width: 7px;
+    height: 7px;
+    padding: 0;
+    margin-top: 4px;
+}
+#my-mastodon-widget .images .image-wrapper {
+    border: 1px solid #fb8964;
+}
