@@ -1,5 +1,7 @@
 # mastodon-on-blog
 
+\([中文文档](https://github.com/mengrru/mastodon-on-blog/blob/main/README.zh.md)\)
+
 Put a Mastodon widget on your website or blog.
 
 ## Quick start
@@ -34,7 +36,7 @@ MastodonOnBlog({
 
 Change the value of `instance` to the domain name of your Mastodon instance, change the value of `userId` to your [number id](#get-your-number-id), and at last remove `staticEmojiDataPath` and `staticStatusesDataPath`. Save and refresh your page, and you can see your toots was shown in the widget.
 
-\*if you get the message `status code: 401`, go to [# Status code: 401](#status-code:-401).
+\*if you get the message `status code: 401`, go to [# Status code: 401](#status-code-401).
 
 ## API
 
@@ -48,7 +50,7 @@ Change the value of `instance` to the domain name of your Mastodon instance, cha
 | loadFailText | the shown text when loading failed | no | '加载失败' | String |
 | staticEmojiDataPath | the path of static emoji data. you can copy a static one from `<instance domain>/api/v1/custom_emojis` and use it to speed up the loading of widget | no | \- | String |
 | staticStatusesDataPath | the path of static statuses data. you can use it when you build widget themes | no | \- | String |
-| token | your access token. usually not needed, and use with caution [if needed](#status-code:-401). | no | \- | String |
+| token | your access token. usually not needed, and use with caution [if needed](#status-code-401). | no | \- | String |
 
 ## Build your own themes
 
@@ -112,7 +114,6 @@ MastodonOnBlog({
     ...
 })
 ```
-
 ### Status code: 401
 
 if you get the message "Status code: 401" in your widget, there are two possibilities:
@@ -120,7 +121,14 @@ if you get the message "Status code: 401" in your widget, there are two possibil
 1. Your instance is in whitelist mode;
 2. The version of your instance is older than 2.7.0
 
-Under all of status above, your should use a `read:statuses` [token](#set-your-access-token) to fetch your toots.
+Under all of status above, your should use a `read:statuses` [token](#set-your-access-token) to fetch your toots:
+
+```
+MastodonOnBlog({
+    ...
+    token: 'your token'
+})
+```
 
 **RISK WARNING:**
 
