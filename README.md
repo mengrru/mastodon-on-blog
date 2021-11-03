@@ -67,7 +67,7 @@ For quick modify, read [Quick build your own themes](https://github.com/mengrru/
 ![mastodon](https://user-images.githubusercontent.com/80361883/139525296-b21924cb-84b3-40ac-9cef-1f8743a43b56.png)
 
 ```
-https://mengru.space/mastodon-on-blog/default.style.css
+https://mengrru.github.io/mastodon-on-blog/default.style.css
 ```
 
 **livly-1**
@@ -75,7 +75,7 @@ https://mengru.space/mastodon-on-blog/default.style.css
 ![livly1preview](https://user-images.githubusercontent.com/80361883/139531628-de785ad9-6a42-441a-b93a-e88c9c5af229.PNG)
 
 ```
-https://mengru.space/mastodon-on-blog/themes/livly-1/style.css
+https://mengrru.github.io/mastodon-on-blog/themes/livly-1/style.css
 ```
 
 **livly-2**
@@ -83,7 +83,7 @@ https://mengru.space/mastodon-on-blog/themes/livly-1/style.css
 ![livly2preview](https://user-images.githubusercontent.com/80361883/139531636-c0077c91-3c17-47be-8141-7c35e5851335.PNG)
 
 ```
-https://mengru.space/mastodon-on-blog/themes/livly-2/style.css
+https://mengrru.github.io/mastodon-on-blog/themes/livly-2/style.css
 ```
 
 **animal-crossing-1**
@@ -91,7 +91,7 @@ https://mengru.space/mastodon-on-blog/themes/livly-2/style.css
 ![like](https://user-images.githubusercontent.com/80361883/139692121-30bcc691-fa21-48c3-a6bf-418130a49bca.PNG)
 
 ```
-https://mengru.space/mastodon-on-blog/themes/animal-crossing-1/style.css
+https://mengrru.github.io/mastodon-on-blog/themes/animal-crossing-1/style.css
 ```
 
 ## FAQ
@@ -105,8 +105,8 @@ Open your Mastodon timeline in browser, and click your avatar, then look at addr
 If you don't want to use iframe, you can import `default.style.css` and `mastodon-on-blog.js` to your page:
 
 ```
-<link href="https://mengru.space/mastodon-on-blog/default.style.css" rel="stylesheet">
-<script src="https://mengru.space/mastodon-on-blog/mastodon-on-blog.js"></script>
+<link href="https://mengrru.github.io/mastodon-on-blog/default.style.css" rel="stylesheet">
+<script src="https://mengrru.github.io/mastodon-on-blog/mastodon-on-blog.js"></script>
 ```
 
 then insert this HTML code to where you want the widget is rendered:
