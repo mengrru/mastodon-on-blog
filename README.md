@@ -29,12 +29,11 @@ MastodonOnBlog({
     loadingText: '加载中(´·ω·｀)',
     loadFailText: '加载失败(╯°Д°）╯︵ /(.□ . \\)',
     rootDOM: 'my-mastodon-widget',
-    staticEmojiDataPath: './test/emoji.json',
     staticStatusesDataPath: './test/statuses.json'
 })
 ```
 
-Change the value of `instance` to the domain name of your Mastodon instance, change the value of `userId` to your [number id](#get-your-number-id), and at last remove `staticEmojiDataPath` and `staticStatusesDataPath`. Save and refresh your page, and you can see your toots was shown in the widget.
+Change the value of `instance` to the domain name of your Mastodon instance, change the value of `userId` to your [number id](#get-your-number-id), and at last remove `staticStatusesDataPath`. Save and refresh your page, and you can see your toots was shown in the widget.
 
 \*if you get the message `status code: 401`, go to [# Status code: 401](#status-code-401).
 
@@ -48,7 +47,6 @@ Change the value of `instance` to the domain name of your Mastodon instance, cha
 | rootDOM | the root DOM of widget rendering | no | 'my-mastodon-widget' | String |
 | loadingText | the shown text when loading | no | '加载中...' | String |
 | loadFailText | the shown text when loading failed | no | '加载失败' | String |
-| staticEmojiDataPath | the path of static emoji data. you can copy a static one from `<instance domain>/api/v1/custom_emojis` and use it to speed up the loading of widget | no | \- | String |
 | staticStatusesDataPath | the path of static statuses data. you can use it when you build widget themes | no | \- | String |
 | token | your access token. usually not needed, and use with caution [if needed](#status-code-401). | no | \- | String |
 
@@ -142,7 +140,7 @@ MastodonOnBlog({
 
 **RISK WARNING:**
 
-The token will expose all your toots, including your private toots like what follower-only or someone-only.
+**The token will expose all your toots, including your private toots like what follower-only or someone-only.**
 
 ### Set your access token
 

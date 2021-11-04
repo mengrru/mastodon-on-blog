@@ -23,10 +23,10 @@
             return a
         }, '')
     }
-    function render (statusesData, emojisData, config) {
+    function render (statusesData, config) {
         let html = ''
-        const getEmoji = getEmojiWrapper(emojisData)
         for (const d of statusesData) {
+            const getEmoji = getEmojiWrapper(d.emojis)
             let content = d.content
             content = content.replace(/:(\w+):/g, getEmoji)
             html += `
@@ -76,12 +76,7 @@
             `https://${config.instance}/api/v1/accounts/${config.userId}/statuses?tagged=${config.tag || ''}`, config.token,
             (str) => {
                 const statusesData = JSON.parse(str)
-                loadFile(config.staticEmojiDataPath || `https://${config.instance}/api/v1/custom_emojis`, config.token, (str) => {
-                    const emojisData = JSON.parse(str)
-                    render(statusesData, emojisData, config)
-                }, () => {
-                    render(statusesData, null, config)
-                })
+                render(statusesData, config)
             }, (statusCode) => {
                 mainDOM.innerHTML = config.loadFailText + '<br>status code: ' + statusCode
             })

@@ -27,12 +27,11 @@ MastodonOnBlog({
     loadingText: '加载中(´·ω·｀)',
     loadFailText: '加载失败(╯°Д°）╯︵ /(.□ . \\)',
     rootDOM: 'my-mastodon-widget',
-    staticEmojiDataPath: './test/emoji.json',
     staticStatusesDataPath: './test/statuses.json'
 })
 ```
 
-将 `instance` 的值改为你所在的长毛象实例域名，将 `userId` 的值改为你的[数字 id](#获取你的数字-id)，最后删除 `staticEmojiDataPath` 和 `staticStatusesDataPath` 字段。保存后刷新页面，不出意外就能看到你的长毛象嘟文显示在插件中了。
+将 `instance` 的值改为你所在的长毛象实例域名，将 `userId` 的值改为你的[数字 id](#获取你的数字-id)，最后删除 `staticStatusesDataPath` 字段。保存后刷新页面，不出意外就能看到你的长毛象嘟文显示在插件中了。
 
 \*如果出现 `status code: 401` 的错误提示，查看 [# Status code: 401](#status-code-401)。
 
@@ -46,7 +45,6 @@ MastodonOnBlog({
 | rootDOM | 插件渲染的根dom的id | 否 | 'my-mastodon-widget' | String |
 | loadingText | 等待加载时显示的文字 | 否 | '加载中...' | String |
 | loadFailText | 加载失败时显示的问题 | 否 | '加载失败' | String |
-| staticEmojiDataPath | emoji静态数据的路径。你可以访问 `<instance domain>/api/v1/custom_emojis` 来拷贝一份到自己的博客目录，然后使用这份静态数据，如此可以加速插件的加载 | 否 | \- | String |
 | staticStatusesDataPath | 嘟文静态数据的路径。可以在编写插件皮肤的时候使用这个字段注入测试数据 | 否 | \- | String |
 | token | 访问令牌。如非必要不要使用。如果必须要用，见 [Status code: 401](#status-code-401) | 否 | \- | String |
 
@@ -140,7 +138,7 @@ MastodonOnBlog({
 
 **风险提示：**
 
-这个 token 会暴露你的包括仅关注者或某个用户可见在内的所有嘟文。
+**这个 token 会暴露你的包括仅关注者或某个用户可见在内的所有嘟文。**
 
 ### 设置 token
 
