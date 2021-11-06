@@ -76,7 +76,7 @@
             `https://${config.instance}/api/v1/accounts/${config.userId}/statuses?tagged=${config.tag || ''}`, config.token,
             (str) => {
                 const statusesData = JSON.parse(str)
-                render(statusesData, config)
+                render(statusesData.slice(0, config.shownMax || statusesData.length), config)
             }, (statusCode) => {
                 mainDOM.innerHTML = config.loadFailText + '<br>status code: ' + statusCode
             })

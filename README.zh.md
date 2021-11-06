@@ -42,6 +42,7 @@ MastodonOnBlog({
 | instance | 你所在的长毛象实例的域名 | 是 | \- | String |
 | userId | 你的数字 id | 是 | \- | Number |
 | tag | 只会显示带有该 tag 的嘟文 | 否 | \- | String |
+| shownMax | 显示嘟文的最大条数 | 否 | 20 | Number |
 | rootDOM | 插件渲染的根dom的id | 否 | 'my-mastodon-widget' | String |
 | loadingText | 等待加载时显示的文字 | 否 | '加载中...' | String |
 | loadFailText | 加载失败时显示的问题 | 否 | '加载失败' | String |

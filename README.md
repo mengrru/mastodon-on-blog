@@ -44,6 +44,7 @@ Change the value of `instance` to the domain name of your Mastodon instance, cha
 | instance | the domain name of your Mastodon instance | yes | \- | String |
 | userId | your number id | yes | \- | Number |
 | tag | only show the toots with this tag | no | \- | String |
+| shownMax | the max number of your toots will be shown | no | 20 | Number |
 | rootDOM | the root DOM of widget rendering | no | 'my-mastodon-widget' | String |
 | loadingText | the shown text when loading | no | '加载中...' | String |
 | loadFailText | the shown text when loading failed | no | '加载失败' | String |
