@@ -21,37 +21,39 @@
 打开 `mastodon-on-blog/index.html`，看到：
 
 ```
-MastodonOnBlog({
-    instance: 'o3o.ca',
-    userId: 541,
-    loadingText: '加载中(´·ω·｀)',
-    loadFailText: '加载失败(╯°Д°）╯︵ /(.□ . \\)',
-    rootDOM: 'my-mastodon-widget',
-    staticStatusesDataPath: './test/statuses.json'
-})
+<script
+  data-instance="o3o.ca"
+  data-user-id="541"
+  data-loading-text="加载中(´·ω·｀)"
+  data-root-dom-id="my-mastodon-widget"
+  data-static-statuses-data-path="./test/statuses.json"
+  data-style-path="./default.style.css"
+  src="./mastodon-on-blog.js"
+></script>
 ```
 
-将 `instance` 的值改为你所在的长毛象实例域名，将 `userId` 的值改为你的[数字 id](#获取你的数字-id)，最后删除 `staticStatusesDataPath` 字段。保存后刷新页面，不出意外就能看到你的长毛象嘟文显示在插件中了。
+将 `data-instance` 的值改为你所在的长毛象实例域名，将 `data-user-id` 的值改为你的[数字 id](#获取你的数字-id)，最后删除 `data-static-statuses-data-path` 字段。保存后刷新页面，不出意外就能看到你的长毛象嘟文显示在插件中了。
 
 \*如果出现 `status code: 401` 的错误提示，查看 [# Status code: 401](#status-code-401)。
 
 ## API
 
-| 字段 | 描述 | 是否必须填写 | 默认值 | 值类型 |
-| --- | --- | --- | --- | --- |
-| instance | 你所在的长毛象实例的域名 | 是 | \- | String |
-| userId | 你的数字 id | 是 | \- | Number |
-| tag | 只会显示带有该 tag 的嘟文 | 否 | \- | String |
-| shownMax | 显示嘟文的最大条数 | 否 | 20 | Number |
-| rootDOM | 插件渲染的根dom的id | 否 | 'my-mastodon-widget' | String |
-| loadingText | 等待加载时显示的文字 | 否 | '加载中...' | String |
-| loadFailText | 加载失败时显示的问题 | 否 | '加载失败' | String |
-| staticStatusesDataPath | 嘟文静态数据的路径。可以在编写插件皮肤的时候使用这个字段注入测试数据 | 否 | \- | String |
-| token | 访问令牌。如非必要不要使用。如果必须要用，见 [Status code: 401](#status-code-401) | 否 | \- | String |
+| 字段 | 描述 | 是否必须填写 | 默认值 |
+| --- | --- | --- | --- |
+| data-instance | 你所在的长毛象实例的域名 | 是 | \- |
+| data-user-id | 你的数字 id | 是 | \- |
+| data-tag | 只会显示带有该 tag 的嘟文 | 否 | \- |
+| data-style-path | 应用到插件上的样式的文件路径 | 否 | \- |
+| data-shown-max | 显示嘟文的最大条数 | 否 | 20 |
+| data-root-dom-id | 插件渲染的根dom的id | 否 | 'my-mastodon-widget' |
+| data-loading-text | 等待加载时显示的文字 | 否 | 'loading...' |
+| data-load-fail-text | 加载失败时显示的问题 | 否 | 'load failed' |
+| data-static-statuses-data-path | 嘟文静态数据的路径。可以在编写插件皮肤的时候使用这个字段注入测试数据 | 否 | \- |
+| data-token | 访问令牌。如非必要不要使用。如果必须要用，见 [Status code: 401](#status-code-401) | 否 | \- |
 
 ## 编写自己的插件皮肤
 
-直接修改文件 `default.style.css` 或者创建一个新的 css 文件并将它 link 到 `index.html` 中。
+直接修改文件 `default.style.css` 或者创建一个新的 css 文件并修改配置字段 `data-style-path` 为此 css 文件的路径。
 
 如果你需要一个独立的 iframe 来测试你的皮肤效果，可以使用 `test/index.html`。
 
@@ -99,27 +101,21 @@ https://mengrru.github.io/mastodon-on-blog/themes/animal-crossing-1/style.css
 
 ### 不使用 iframe
 
-如果你不想使用 iframe，你可以直接在你的页面引入 `default.style.css` 和 `mastodon-on-blog.js`：
+如果你不想使用 iframe，你可以直接在你的页面底部引入 `mastodon-on-blog.js`：
 
 ```
-<link href="https://mengrru.github.io/mastodon-on-blog/default.style.css" rel="stylesheet">
-<script src="https://mengrru.github.io/mastodon-on-blog/mastodon-on-blog.js"></script>
+<script
+  data-instance="<your instance domain>"
+  data-user-id="<your user id>"
+  data-style-path="https://mengrru.github.io/mastodon-on-blog/default.style.css"
+  src="https://mengrru.github.io/mastodon-on-blog/mastodon-on-blog.js">
+</script>
 ```
 
 然后在你希望放置插件的地方插入下面的 HTML 代码：
 
 ```
 <div id="my-mastodon-widget"></div>
-```
-
-最后在页面底部插入配置插件的 JavaScript 代码：
-
-```
-MastodonOnBlog({
-    instance: '',
-    userId: 1,
-    ...
-})
 ```
 ### Status code: 401
 
@@ -131,10 +127,11 @@ MastodonOnBlog({
 对于以上两种情况，你需要给你的插件传入一个带有 `read:statuses` 权限的 [token](#设置-token) 来解决：
 
 ```
-MastodonOnBlog({
-    ...
-    token: 'your token'
-})
+<script
+  ...
+  data-token="<your token>"
+  src="https://mengrru.github.io/mastodon-on-blog/mastodon-on-blog.js">
+</script>
 ```
 
 **风险提示：**

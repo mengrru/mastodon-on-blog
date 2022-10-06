@@ -6,21 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>livly-1 theme - Mastodon on blog</title>
     <link href="../../iframe.base.css" rel="stylesheet">
-    <link href="./style.css" rel="stylesheet">
 </head>
 <body>
     <div id="my-mastodon-widget"></div>
-    <script src="../../mastodon-on-blog.js"></script>
-    <script>
-        MastodonOnBlog({
-            instance: 'o3o.ca',
-            userId: 541,
-            loadingText: '加载中(´·ω·｀)',
-            loadFailText: '加载失败(╯°Д°）╯︵ /(.□ . \\)',
-            rootDOM: 'my-mastodon-widget',
-            staticStatusesDataPath: '../../test/statuses.json'
-        })
-    </script>
+    <script
+      data-instance="o3o.ca"
+      data-user-id="541"
+      data-loading-text="加载中(´·ω·｀)"
+      data-load-fail-text="加载失败"
+      data-root-dom-id="my-mastodon-widget"
+      data-static-statuses-data-path="../../test/statuses.json"
+      data-style-path="./style.css"
+      src="../../mastodon-on-blog.js"
+    ></script>
 </body>
 </html>
 

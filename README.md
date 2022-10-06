@@ -23,37 +23,39 @@ Save and refresh the page, then you can see the widget looks like this:
 Open `mastodon-on-blog/index.html` and focus on:
 
 ```
-MastodonOnBlog({
-    instance: 'o3o.ca',
-    userId: 541,
-    loadingText: '加载中(´·ω·｀)',
-    loadFailText: '加载失败(╯°Д°）╯︵ /(.□ . \\)',
-    rootDOM: 'my-mastodon-widget',
-    staticStatusesDataPath: './test/statuses.json'
-})
+<script
+  data-instance="o3o.ca"
+  data-user-id="541"
+  data-loading-text="加载中(´·ω·｀)"
+  data-root-dom-id="my-mastodon-widget"
+  data-static-statuses-data-path="./test/statuses.json"
+  data-style-path="./default.style.css"
+  src="./mastodon-on-blog.js"
+></script>
 ```
 
-Change the value of `instance` to the domain name of your Mastodon instance, change the value of `userId` to your [number id](#get-your-number-id), and at last remove `staticStatusesDataPath`. Save and refresh your page, and you can see your toots was shown in the widget.
+Change the value of `data-instance` to the domain name of your Mastodon instance, change the value of `data-user-id` to your [number id](#get-your-number-id), and at last remove `data-static-statuses-data-path`. Save and refresh your page, and you can see your toots was shown in the widget.
 
 \*if you get the message `status code: 401`, go to [# Status code: 401](#status-code-401).
 
 ## API
 
-| Field | Description | Required | Default | Type |
-| --- | --- | --- | --- | --- |
-| instance | the domain name of your Mastodon instance | yes | \- | String |
-| userId | your number id | yes | \- | Number |
-| tag | only show the toots with this tag | no | \- | String |
-| shownMax | the max number of your toots will be shown | no | 20 | Number |
-| rootDOM | the root DOM of widget rendering | no | 'my-mastodon-widget' | String |
-| loadingText | the shown text when loading | no | '加载中...' | String |
-| loadFailText | the shown text when loading failed | no | '加载失败' | String |
-| staticStatusesDataPath | the path of static statuses data. you can use it when you build widget themes | no | \- | String |
-| token | your access token. usually not needed, and use with caution [if needed](#status-code-401). | no | \- | String |
+| Field | Description | Required | Default |
+| --- | --- | --- | --- |
+| data-instance | the domain name of your Mastodon instance | yes | \- |
+| data-user-id | your number id | yes | \- |
+| data-tag | only show the toots with this tag | no | \- |
+| data-style-path | path of css file that would stylus your widget | no | \- |
+| data-shown-max | the max number of your toots will be shown | no | 20 |
+| data-root-dom-id | the id of root DOM that widget rendering | no | 'my-mastodon-widget' |
+| data-loading-text | the shown text when loading | no | 'loading...' |
+| data-load-fail-text | the shown text when loading failed | no | 'load failed' |
+| data-static-statuses-data-path | the path of static statuses data. you can use it when you build widget themes | no | \- |
+| data-token | your access token. usually not needed, and use with caution [if needed](#status-code-401). | no | \- |
 
 ## Build your own themes
 
-Modify the file `default.style.css` to build your own styles, or create a new css file and link it in the `index.html`.
+Modify the file `default.style.css` to build your own styles, or create a new css file modify the value of field `data-style-path` to its path.
 
 If you need an independent iframe to test your work, you can use `test/index.html`.
 
@@ -101,27 +103,21 @@ Open your Mastodon timeline in browser, and click your avatar, then look at addr
 
 ### Not using iframe
 
-If you don't want to use iframe, you can import `default.style.css` and `mastodon-on-blog.js` to your page:
+If you don't want to use iframe, you can import `mastodon-on-blog.js` to your page:
 
 ```
-<link href="https://mengrru.github.io/mastodon-on-blog/default.style.css" rel="stylesheet">
-<script src="https://mengrru.github.io/mastodon-on-blog/mastodon-on-blog.js"></script>
+<script
+  data-instance="<your instance domain>"
+  data-user-id="<your user id>"
+  data-style-path="https://mengrru.github.io/mastodon-on-blog/default.style.css"
+  src="https://mengrru.github.io/mastodon-on-blog/mastodon-on-blog.js">
+</script>
 ```
 
 then insert this HTML code to where you want the widget is rendered:
 
 ```
 <div id="my-mastodon-widget"></div>
-```
-
-at last insert the config code at the bottom of your page:
-
-```
-MastodonOnBlog({
-    instance: '',
-    userId: 1,
-    ...
-})
 ```
 ### Status code: 401
 
