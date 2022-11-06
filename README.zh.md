@@ -97,7 +97,10 @@ https://mengrru.github.io/mastodon-on-blog/themes/animal-crossing-1/style.css
 
 ### 获取你的数字 id
 
-用浏览器打开你的长毛象时间线，点击你自己的头像，然后查看地址栏，你可以看到页面地址为：`<instance domain>/web/accounts/<number>`，其中 `<number>` 就是你的数字 id。
+稍微有一点复杂。
+
+1. 用浏览器打开你的长毛象时间线，点击你自己的头像，然后按 `Ctrl` + `Shift` + `i` 打开浏览器 devtools，点击其中的 `Network` 标签；
+2. 刷新这个页面（不要关掉刚才打开的 devtools），你可以在 devtools 上看一个列表正被加载出来，不用管它，点击子标签 `Fetch/XHR`，然后就能在这个列表中看到一串纯数字，那个就是你的数字 id。
 
 ### 不使用 iframe
 

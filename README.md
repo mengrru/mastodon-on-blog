@@ -99,7 +99,10 @@ https://mengrru.github.io/mastodon-on-blog/themes/animal-crossing-1/style.css
 
 ### Get your number id
 
-Open your Mastodon timeline in browser, and click your avatar, then look at address bar you can find the url is `<instance domain>/web/accounts/<number>`, the `<number>` is your number id.
+A little complex.
+
+1. Open your Mastodon timeline in browser, and click your avatar, then press `Ctrl` + `Shift` + `i` to open browser's devtools, and click the `Network` tag.
+2. Refresh the page with the devtools opening, you can see a bunch of things you don't know what they are is loading out on the devtools. Click the sub tab `Fetch/XHR`, you can find a string of pure numbers from them, the number is your number id.
 
 ### Not using iframe
 

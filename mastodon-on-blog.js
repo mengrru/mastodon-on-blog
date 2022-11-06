@@ -11,7 +11,8 @@
     staticStatusesDataPath: Dataset.staticStatusesDataPath,
     token: Dataset.token,
     tag: Dataset.tag,
-    shownMax: +Dataset.shownMax
+    shownMax: +Dataset.shownMax,
+    showImagesWording: Dataset.showImagesWording || '[Show images]'
   }
 
   function launch (config) {
@@ -53,7 +54,12 @@
   function showImage (e, imageData) {
     e.path[1].innerHTML = imageData.reduce((a, b) =>
       b.type === 'image'
-        ? a + `<div class="image-wrapper"><img src="${b.preview_url}" /></div>`
+        ? a + `
+          <div class="image-wrapper">
+            <a href="${b.preview_url}" target="_blank">
+              <img src="${b.preview_url}" />
+            </a>
+          </div>`
         : a
       , '')
     return false
@@ -65,21 +71,32 @@
         const data = emojisData.find(e => e.shortcode === p1)
         return data ? `<img class="emoji" src="${data.static_url}"/>` : match
       }
+    const formatContent = (content, emojis) =>
+      content.replace(/:(\w+):/g, getEmojiWrapper(emojis))
+
+    const template = (d, isReblog) => `
+      <div class="item">
+        ${isReblog ? `<div class="reblog"></div>` : ``}
+        ${!isReblog && d.in_reply_to_id ? `<div class="reply"></div>` : ``}
+        <div class="content">
+          <div class="text">${formatContent(d.content, d.emojis)}</div>
+          ${ d.media_attachments.some(e => e.type === 'image')
+            ? `
+              <div class="images">
+                <a class="show-image" onclick="MastodonOnBlogProp.showImage(event, ${JSON.stringify(d.media_attachments).replace(/"/g, '\'')})" href="#">
+                  ${Config.showImagesWording}
+                </a>
+              </div>
+            `: ''
+          }
+        </div>
+        <div class="time">${formatTime(d.created_at)}</div>
+      </div>
+    `
+
     mainDOM.innerHTML = statusesData.reduce((html, d) =>
       `${html}
-        <div class="item">
-          <div class="content">${d.content.replace(/:(\w+):/g, getEmojiWrapper(d.emojis))}</div>
-            ${ d.media_attachments.some(e => e.type === 'image')
-              ? `
-                <div class="images">
-                  <a class="show-image" onclick="MastodonOnBlogProp.showImage(event, ${JSON.stringify(d.media_attachments).replace(/"/g, '\'')})" href="#">
-                    显示图片
-                  </a>
-                </div>
-              `: ''
-            }
-          <div class="time">${formatTime(d.created_at)}</div>
-        </div>
+        ${d.reblog ? template(d.reblog, true) : template(d)}
       `, '')
     Array.from(document.querySelectorAll('.hashtag')).forEach(e => {
       e.remove()

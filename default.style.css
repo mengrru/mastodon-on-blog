@@ -19,6 +19,7 @@
 }
 #my-mastodon-widget p {
     margin: 0;
+    word-break: break-word;
 }
 #my-mastodon-widget a {
     color: rgba(170, 0, 0, .5);
@@ -32,7 +33,6 @@
 }
 #my-mastodon-widget .time {
     color: #aaa;
-    padding-bottom: 5px;
 }
 #my-mastodon-widget .images .image-wrapper {
     margin-left: 3px;
@@ -45,9 +45,34 @@
 #my-mastodon-widget .images img {
     min-width: 100%;
     min-height: 100%;
-    max-width: 60px;
+    max-width: 100%;
+    object-fit: cover;
 }
 #my-mastodon-widget .emoji {
     width: 18px;
 }
-
+#my-mastodon-widget .reply::before,
+#my-mastodon-widget .reblog::before {
+  display: inline-block;
+  margin-bottom: 5px;
+  background-color: #f3f3f3;
+  padding: 3px 5px;
+  border-radius: 3px;
+}
+#my-mastodon-widget .reblog::before {
+  content: "🔁 Repost:";
+}
+#my-mastodon-widget .reply::before {
+  content: "↩️ Reply:";
+}
+#my-mastodon-widget .item {
+  padding-bottom: 5px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #efefef;
+}
+#my-mastodon-widget .content {
+  margin-bottom: 5px;
+}
+#my-mastodon-widget .images {
+  margin-top: 3px;
+}
