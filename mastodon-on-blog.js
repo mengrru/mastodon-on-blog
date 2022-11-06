@@ -52,6 +52,7 @@
       })
   }
   function showImage (e, imageData) {
+    e.preventDefault()
     e.path[1].innerHTML = imageData.reduce((a, b) =>
       b.type === 'image'
         ? a + `
@@ -98,8 +99,8 @@
       `${html}
         ${d.reblog ? template(d.reblog, true) : template(d)}
       `, '')
-    Array.from(document.querySelectorAll('.hashtag')).forEach(e => {
-      e.remove()
+    Array.from(document.querySelectorAll(`#${config.rootDOMId} .hashtag`)).forEach(e => {
+      e.target = '_blank'
     })
     if (config.stylePath) {
       loadFile(config.stylePath)

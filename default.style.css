@@ -76,3 +76,8 @@
 #my-mastodon-widget .images {
   margin-top: 3px;
 }
+#my-mastodon-widget .hashtag {
+  padding: 2px 3px;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
