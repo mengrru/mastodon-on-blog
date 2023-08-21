@@ -53,7 +53,7 @@
   }
   function showImage (e, imageData) {
     e.preventDefault()
-    e.path[1].innerHTML = imageData.reduce((a, b) =>
+    e.composedPath()[1].innerHTML = imageData.reduce((a, b) =>
       b.type === 'image'
         ? a + `
           <div class="image-wrapper">
